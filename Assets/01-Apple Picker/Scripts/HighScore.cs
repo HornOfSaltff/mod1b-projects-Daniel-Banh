@@ -9,12 +9,12 @@ public class HighScore : MonoBehaviour
 
 	void Awake()
 	{
-		if (PlayerPrefs.HasKey("ApplePickerHighScore"))
+		if (PlayerPrefs.HasKey("HighScore"))
 		{
-			score = PlayerPrefs.GetInt("ApplePickerHighScore");
+			score = PlayerPrefs.GetInt("HighScore");
 		}
 
-		PlayerPrefs.SetInt("ApplePickerHighScore", score);
+		PlayerPrefs.SetInt("HighScore", score);
 	}
 
 	// Use this for initialization
@@ -29,9 +29,9 @@ public class HighScore : MonoBehaviour
 		Text gt = this.GetComponent<Text>();
 		gt.text = "High Score: " + score;
 
-		if (score > PlayerPrefs.GetInt("ApplePickerHighScore"))
+		if (score > PlayerPrefs.GetInt("HighScore"))
 		{
-			PlayerPrefs.SetInt("ApplePickerHighScore", score);
+			PlayerPrefs.SetInt("HighScore", score);
 		}
 	}
 }
