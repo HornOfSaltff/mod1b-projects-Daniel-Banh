@@ -15,16 +15,23 @@ public class AppleTree : MonoBehaviour
     public float leftAndRightEdge = 20f;
 
     // Chance that the AppleTree will change direction
-    public float chanceToChangeDirection;
+    public float chanceToChangeDirection = 0.02f;
 
     // Rate at which Apples will be instantiate
-    public float secondsBetweenAppleDrop;
+    public float secondsBetweenAppleDrop = 2f;
 
     void Start()
     {
         // Dropping apples every second
+        Invoke("DropApple", 2f);
     }
 
+    void DropApple()
+    {
+        GameObject apple = Instantiate(applePrefab) as GameObject;
+        apple.transform.position = transform.position;
+        Invoke("DropApple", secondsBetweenAppleDrop);
+    }
     void Update()
     {
         // Basic Movement
