@@ -36,15 +36,13 @@ public class Basket : MonoBehaviour
 		if (collidedWith.tag == "Apple")
 		{
 			Destroy(collidedWith);
+			int score = int.Parse(scoreGT.text);
+			score+=100;
+			scoreGT.text=score.ToString();
+			if(score>HighScore.score){
+				HighScore.score=score;
+			}
 		}
 
-		int score = int.Parse(scoreGT.text);
-		score += 100;
-		scoreGT.text = score.ToString();
-
-		if (score > HighScore.score)
-		{
-			HighScore.score = score;
-		}
 	}
 }
