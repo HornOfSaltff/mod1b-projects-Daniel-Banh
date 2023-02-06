@@ -13,10 +13,9 @@ public class Basket : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		GameObject scoreGO = GameObject.Find("ScoreCounter");
+		GameObject scoreGO = GameObject.Find("Scoring");
 		scoreGT = scoreGO.GetComponent<Text>();
 		scoreGT.text = "0";
-
 	}
 
 	// Update is called once per frame
