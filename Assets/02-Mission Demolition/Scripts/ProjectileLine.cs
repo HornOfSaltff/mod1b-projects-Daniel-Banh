@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ProjectileLine : MonoBehaviour
 {
-    static public ProjectileLine S;
+    static public ProjectileLine S; // Singleton
     [Header("Set in Inspector")]
     public float minDist = 0.1f;
     private LineRenderer line;
@@ -41,7 +41,8 @@ public class ProjectileLine : MonoBehaviour
     // This can be used to clear the line directly
     public void Clear()
     {
-        _poi = null; line.enabled = false;
+        _poi = null; 
+        line.enabled = false;
         points = new List<Vector3>();
     }
     public void AddPoint()
@@ -75,7 +76,6 @@ public class ProjectileLine : MonoBehaviour
             line.enabled = true;
         }
     }
-    // Returns the location of the most recently added point
     public Vector3 lastPoint
     {
         get
@@ -106,10 +106,9 @@ public class ProjectileLine : MonoBehaviour
             }
             else
             {
-                return; // Return if we didn't find a poi
+                return;
             }
         }
-        // If there is a poi, it's loc is added every FixedUpdate
         AddPoint();
         if (FollowCam.POI == null)
         {

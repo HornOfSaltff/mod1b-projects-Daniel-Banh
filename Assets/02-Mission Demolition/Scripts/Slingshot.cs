@@ -5,6 +5,7 @@ using UnityEngine;
 public class Slingshot : MonoBehaviour
 {
     [Header("Set in Inspector")]
+    public static Slingshot S;
     public GameObject prefabProjectile;
     public float velocityMult = 8f;
 
@@ -24,6 +25,7 @@ public class Slingshot : MonoBehaviour
             return S.launchPos;
         }
     }
+
 
 
     void Awake()
